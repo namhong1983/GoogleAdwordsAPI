@@ -1,0 +1,44 @@
+﻿@*<h2>Sign in with</h2>*@
+@{
+    ViewData["Title"] = "LoginView";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<h3>Google Account</h3>
+<br />
+<div>
+    <fieldset>
+        <div class="control-label">
+            <label>Google Email:</label>
+        </div>
+        <div>
+            <input type="text" id="txtEmail" style="width: 250px; text-align: right;" />
+        </div>
+        <br />
+        @*<div class="control-label">
+                <label>Password:</label>
+            </div>
+            <div>
+                <input type="password" id="txtPassword" style = "width: 250px; text-align: right;" />
+            </div>
+            <br />*@
+        <div>
+            <input type="submit" id="btnContinue" value="Continue" />
+        </div>
+    </fieldset>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.semanticui.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.semanticui.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(document).ready(function () {
+            $("#btnContinue").click(function () {
+                var email = $("#txtEmail").val();
+                window.location = '@Url.Action("LoginGooglePassword", "Login")?provider=Google&email=' + email;
+            });
+        });
+    });
+</script>

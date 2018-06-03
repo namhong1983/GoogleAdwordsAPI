@@ -1,0 +1,48 @@
+﻿@model GoogleAPICore.Models.OAuthLogin
+@{
+    ViewData["Title"] = "LoginView";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<br />
+<br />
+<br />
+<span><a href="#">Site Rank Systems wants to</a></span><br />
+<span>access your Google Account</span><br />
+<span>@Html.DisplayFor(model => model.Email)</span>
+<br />
+<div>
+    <span>This will allow <a href="#">Site Ranks Systems</a> to:</span>
+    <ul>
+        <li>Manage your Adwords campaigns</li>
+    </ul>
+    <br />
+    <p>
+        <h4>Allow Site Rank Systems to do this?</h4>
+        By clicking Allow, you allow this app to use your information in <br />
+        accordance to their terms of service and privacy policies. You can <br />
+        remove this or any other app with access to your account in <br />
+        <a href="#">My Account</a>
+    </p>
+</div>
+<div>
+    <input type="button" id="btnCancel" value="CANCEL" />
+    <input type="button" id="btnAllow" value="ALLOW" />
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.semanticui.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.semanticui.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(document).ready(function () {
+            $("#btnAllow").click(function () {
+                var email = '@Model.Email';
+                var password = '@Model.Password';
+
+                window.location = '@Url.Action("SaveGoogleAccount", "Login")?provider=Google&email='+email+'&password='+password;
+            });
+        });
+    });
+</script>

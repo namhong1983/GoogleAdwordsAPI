@@ -1,0 +1,66 @@
+﻿@model GoogleAPICore.Models.Login
+@{
+    ViewData["Title"] = "LoginView";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<br />
+<br />
+<h2>Login</h2>
+@using (Html.BeginForm("LoginAccount", "Login"))
+{
+    @Html.ValidationSummary(true, "Login failed. Check your login details.");
+    <div>
+        <fieldset>
+            <div class="editor-label">
+                @Html.LabelFor(u => u.Email)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.Email, new { style = "width: 250px; text-align: right;" })
+                @Html.ValidationMessageFor(u => u.Email)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(u => u.Password)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(u => u.Password, new { style = "width: 250px; text-align: right;" })
+                @Html.ValidationMessageFor(u => u.Password)
+            </div>
+            @*<div class="editor-label">
+            @Html.LabelFor(u => u.AccessToken)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(u => u.AccessToken, new { style = "width: 250px; text-align: right;" })
+            @Html.ValidationMessageFor(u => u.AccessToken)
+        </div>*@
+            <br />
+            <div class="editor-label">
+                <input type="submit" value="Log In" />
+            </div>
+            <br />
+        </fieldset>
+    </div>
+}
+<div>
+    <fieldset>
+        <legend>Sign in With</legend>
+        <div class="editor-label">
+            <input type="submit" id="btnLoginGoogleAccount" value="Google" />
+        </div>
+    </fieldset>
+</div>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.semanticui.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.semanticui.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(document).ready(function () {
+            $("#btnLoginGoogleAccount").click(function () {
+               window.location = ('@Url.Action("LoginWithGoogle", "Login")');
+            });
+        });
+    });
+</script>

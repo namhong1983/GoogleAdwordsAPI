@@ -1,0 +1,75 @@
+﻿@model IEnumerable<GoogleAPICore.Controllers.Resources.GetAdAccountsResponse>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<br />
+<br />
+<h2>Ad Accounts</h2>
+<div>
+    <div>
+        <a id="btnGetList" href="#">Get List of Ad Accounts</a>
+    </div>
+    <br />
+    <div id="container">
+        <h3>List Of Accounts</h3>
+        <div id="dvAdAccountsResult">
+            @{Html.Hidden("DisplayListAccounts", Model);}
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.semanticui.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+<script language="JavaScript" type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.semanticui.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.semanticui.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+            $(document).ready(function () {
+                $("#btnGetList").click(function () {
+                     $("#dvAdAccountsResult").load('@(Url.Action("DisplayPartialAccountList","AdAccounts"))');
+                 });
+            });
+
+
+            //$(document).ready(function () {
+            //    $('#AdAccountsTable').DataTable();
+            //});
+
+            $('#btnAuthorize').click(function () {
+                var authorizationCode = $("#txtAuthorizeCode").val();
+                console.log(authorizationCode);
+
+                var formData = {
+                    authorizationCode: authorizationCode
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Authorize", "OAuthApi")',
+                    data: { "authorizationCode": authorizationCode},
+                    datatype: "json",
+                    success: function (response) {
+                        addAlert('Authorized!', "alert-success");
+                        button.button("reset");
+                    },
+                    error: function (response) {
+                        if (response.Message) {
+                            addAlert(response.message, "alert-danger");
+                        }
+                        button.button("reset");
+                    }
+                });
+            });
+    });
+</script>

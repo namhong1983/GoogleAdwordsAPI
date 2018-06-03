@@ -1,0 +1,97 @@
+﻿@model IEnumerable<GoogleAPICore.Controllers.Resources.GetAdAccountsResponse>
+@{
+    
+}
+
+<div>
+    <table id="AdAccountsTable" class="ui celled table" style="width:100%">
+        <thead>
+            <tr>
+                <th>Customer Id</th>
+                <th>Customer Name</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><a id="customerId" data-id="@item.CustomerId" href="#">@item.CustomerId</a></td>
+                    @*<td>@Html.ActionLink(item.CustomerId, "", "", new { id = item.CustomerId }, new { @id = item.CustomerId });</td>*@
+                    <td>@item.CustomerName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<hr />
+<div id="container1">
+    <h3>List Of Ads</h3>
+    <div id="dvAdsResult">
+        @{Html.Hidden("Ads", Model);}
+    </div>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.semanticui.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+<script language="JavaScript" type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.semanticui.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.semanticui.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        @*$(document).ready(function () {
+            $("#customerId").click(function () {
+                var id = $(this).data('id');
+                var link = '@Url.Action("DisplayPartialAdsByAccount", "AdAccounts", new { @id = "idValue" })';
+                link = link.replace("idValue",id);
+                $("#dvAdsResult").load(link);
+              });
+        });*@
+
+        $(document).ready(function () {
+            $("#customerId").on('click',function () {
+                var id = $(this).data('id');
+                var link = '@Url.Action("DisplayPartialAdsByAccount", "AdAccounts", new { @id = "idValue" })';
+                link = link.replace("idValue",id);
+                $("#dvAdsResult").load(link);
+              });
+        });
+
+
+        @*$(document).ready(function () {
+            $("#customerId").click(function () {
+                var id = $(this).data('id');
+
+                console.log(id);
+
+                //var formData = {
+                //    id: id
+                //};
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("DisplayPartialAdsByAccount", "AdAccounts")',
+                    data: { "id": id },
+                    datatype: "json",
+                    success: function (response) {
+                        $("#dvAdsResult").load(response);
+                    },
+                    error: function (response) {
+                        if (response.Message) {
+                        }
+                    }
+                });
+            });
+        });*@
+    });
+</script>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<GoogleAPICore.Controllers.Resources.GetAdsResponse>
+@{
+
+}
+
+<div>
+    <table id="AdsTable" class="ui celled table" style="width:100%">
+        <thead>
+            <tr>
+                <th>Ad Heading </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                       @Html.HiddenFor( model => @item.AdId)
+                    <td>@item.AdHeadings</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.semanticui.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+<script language="JavaScript" type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.semanticui.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.semanticui.min.js"></script>

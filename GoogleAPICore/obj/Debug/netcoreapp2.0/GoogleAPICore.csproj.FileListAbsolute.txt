@@ -1,0 +1,11 @@
+C:\srs\GoogleAds\SiteRank\Google Ad API Core Project\GoogleAPICore\bin\Debug\netcoreapp2.0\GoogleAPICore.deps.json
+C:\srs\GoogleAds\SiteRank\Google Ad API Core Project\GoogleAPICore\bin\Debug\netcoreapp2.0\GoogleAPICore.runtimeconfig.json
+C:\srs\GoogleAds\SiteRank\Google Ad API Core Project\GoogleAPICore\bin\Debug\netcoreapp2.0\GoogleAPICore.runtimeconfig.dev.json
+C:\srs\GoogleAds\SiteRank\Google Ad API Core Project\GoogleAPICore\bin\Debug\netcoreapp2.0\GoogleAPICore.dll
+C:\srs\GoogleAds\SiteRank\Google Ad API Core Project\GoogleAPICore\bin\Debug\netcoreapp2.0\GoogleAPICore.pdb
+C:\srs\GoogleAds\SiteRank\Google Ad API Core Project\GoogleAPICore\obj\Debug\netcoreapp2.0\GoogleAPICore.csproj.CoreCompileInputs.cache
+C:\srs\GoogleAds\SiteRank\Google Ad API Core Project\GoogleAPICore\obj\Debug\netcoreapp2.0\GoogleAPICore.AssemblyInfoInputs.cache
+C:\srs\GoogleAds\SiteRank\Google Ad API Core Project\GoogleAPICore\obj\Debug\netcoreapp2.0\GoogleAPICore.AssemblyInfo.cs
+C:\srs\GoogleAds\SiteRank\Google Ad API Core Project\GoogleAPICore\obj\Debug\netcoreapp2.0\GoogleAPICore.dll
+C:\srs\GoogleAds\SiteRank\Google Ad API Core Project\GoogleAPICore\obj\Debug\netcoreapp2.0\GoogleAPICore.pdb
+C:\srs\GoogleAds\SiteRank\Google Ad API Core Project\GoogleAPICore\obj\Debug\netcoreapp2.0\GoogleAPICore.csprojResolveAssemblyReference.cache
